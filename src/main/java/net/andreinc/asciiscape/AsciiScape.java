@@ -19,8 +19,4 @@ public class AsciiScape {
         return String.format(parser.parse(source), args);
     }
 
-    public static void main(String[] args) {
-       String f = ascii.format("{redBg red {blink ba}} {blue test}\n");
-        System.out.println(f);
-    }
 }
