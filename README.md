@@ -31,15 +31,17 @@ AsciiClass title = AsciiClass.withName("title").add(BOLD);
 AsciiClass url = AsciiClass.withName("url").add(UNDERLINE, BLUE);
 AsciiClass text = AsciiClass.withName("text").add(RED);
 
-        context.add(title).add(url).add(text);
+// We register all the classes in the AsciiEscape context.
+// Those classes will become available in String template.
+context.add(title).add(url).add(text);
 
-        AsciiScape asciiScape = new AsciiScape(context);
+AsciiScape asciiScape = new AsciiScape(context);
 
-        String format = asciiScape.format("{title Bold title}\n" +
-                                                 "-{text Some url: {url www.google.com}};\n" +
-                                                 "-{text Some other url: {url {redBg www.redbackground.com}}}");
+String format = asciiScape.format("{title Bold title}\n" +
+                                         "-{text Some url: {url www.google.com}};\n" +
+                                         "-{text Some other url: {url {redBg www.redbackground.com}}}");
 
-        System.out.println(format);
+System.out.println(format);
 ```
 The output:
 
