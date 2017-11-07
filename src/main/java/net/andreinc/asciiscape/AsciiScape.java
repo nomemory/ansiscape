@@ -14,6 +14,10 @@ public class AsciiScape {
         this.context = new AsciiScapeContext();
     }
 
+    public AsciiScape(AsciiScapeContext context) {
+        this.context = context;
+    }
+
     public String format(String source, Object... args) {
         Parser parser = new Parser(context, source);
         return String.format(parser.parse(source), args);
