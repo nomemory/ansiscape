@@ -14,7 +14,9 @@
 AsciiScape asciiScape = new AsciiScape();
 
 String formatted = asciiScape.format("{b Some Bold Text {u Also Underlined}}");
-String formatted2 = asciiScape.format("Romanian Flag {redBg    }{yellowBg    }{blueBg    }");
+
+// The Romanian Flag
+String formatted2 = asciiScape.format("{redBg    }{yellowBg    }{blueBg    }");
 
 System.out.println(formatted);
 System.out.println(formatted2);
@@ -22,3 +24,4 @@ System.out.println(formatted2);
 
 The output:
 
+![Example1Simple.png](https://github.com/nomemory/asciiscape/blob/master/examples/Example1Simple.png)
