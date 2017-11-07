@@ -1,14 +1,8 @@
 # AsciiScape
 
-**AsciiScape** is a simple Java library that allows the user to format the output of the applications using ASCII Escape Codes.
+**AsciiScape** is a simple Java library that allows the user to format the output of the applications using [ASCII Escape Codes](https://en.wikipedia.org/wiki/ANSI_escape_code).
 
-*Note:* The library is still work in progress:
-- Only the MVP features where implemented;
-- No Unit Tests;
-- Code needs additional refactoring.
-
-
-### Example
+### Example (1)
 
 ```java
 AsciiScape asciiScape = new AsciiScape();
@@ -25,3 +19,28 @@ System.out.println(formatted2);
 The output:
 
 ![Example1Simple.png](https://github.com/nomemory/asciiscape/blob/master/examples/Example1Simple.png)
+
+### Example (2)
+
+In this example we are defining our own escape codes classes (in a way similar to CSS classes):
+
+```java
+AsciiScapeContext context = new AsciiScapeContext();
+
+AsciiClass title = AsciiClass.withName("title").add(BOLD);
+AsciiClass url = AsciiClass.withName("url").add(UNDERLINE, BLUE);
+AsciiClass text = AsciiClass.withName("text").add(RED);
+
+        context.add(title).add(url).add(text);
+
+        AsciiScape asciiScape = new AsciiScape(context);
+
+        String format = asciiScape.format("{title Bold title}\n" +
+                                                 "-{text Some url: {url www.google.com}};\n" +
+                                                 "-{text Some other url: {url {redBg www.redbackground.com}}}");
+
+        System.out.println(format);
+```
+The output:
+
+![Example2Simple.png](https://github.com/nomemory/asciiscape/blob/master/examples/Example2Simple.png)
