@@ -1,16 +1,14 @@
-# AsciiScape
+# AnsiScape
 
-**AsciiScape** is a simple Java library that allows the user to format the output of the applications using [ASCII Escape Codes](https://en.wikipedia.org/wiki/ANSI_escape_code).
+**AnsiScape** is a simple Java library that allows the user to format the output of the applications using [ANSI Escape Codes](https://en.wikipedia.org/wiki/ANSI_escape_code).
 
 #### Example (1)
 
 ```java
-AsciiScape asciiScape = new AsciiScape();
+AnsiScape asciiScape = new AnsiScape();
 
 String formatted = asciiScape.format("{b Some Bold Text {u Also Underlined}}");
-
-// The Romanian Flag
-String formatted2 = asciiScape.format("{redBg    }{yellowBg    }{blueBg    }");
+String formatted2 = asciiScape.format("Romanian Flag {redBg    }{yellowBg    }{blueBg    }");
 
 System.out.println(formatted);
 System.out.println(formatted2);
@@ -25,21 +23,19 @@ The output:
 In this example we are defining our own escape codes classes (in a way similar to CSS classes):
 
 ```java
-AsciiScapeContext context = new AsciiScapeContext();
+AnsiScapeContext context = new AnsiScapeContext();
 
-AsciiClass title = AsciiClass.withName("title").add(BOLD);
-AsciiClass url = AsciiClass.withName("url").add(UNDERLINE, BLUE);
-AsciiClass text = AsciiClass.withName("text").add(RED);
+AnsiClass title = AnsiClass.withName("title").add(AnsiSequence.BOLD);
+AnsiClass url = AnsiClass.withName("url").add(AnsiSequence.UNDERLINE, AnsiSequence.BLUE);
+AnsiClass text = AnsiClass.withName("text").add(AnsiSequence.RED);
 
-// We register all the classes in the AsciiEscape context.
-// Those classes will become available in String template.
 context.add(title).add(url).add(text);
 
-AsciiScape asciiScape = new AsciiScape(context);
+AnsiScape ansiScape = new AnsiScape(context);
 
-String format = asciiScape.format("{title Bold title}\n" +
-                                         "-{text Some url: {url www.google.com}};\n" +
-                                         "-{text Some other url: {url {redBg www.redbackground.com}}}");
+String format = ansiScape.format("{title Bold title}\n" +
+                                                 "-{text Some url: {url www.google.com}};\n" +
+                                                 "-{text Some other url: {url {redBg www.redbackground.com}}}");
 
 System.out.println(format);
 ```
