@@ -1,4 +1,4 @@
-package net.andreinc.asciiscape.parser.tokens;
+package net.andreinc.ansiscape.parser.tokens;
 
 public class EscapeClassEnd extends Token {
 

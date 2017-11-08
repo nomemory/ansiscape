@@ -1,16 +1,14 @@
-package net.andreinc.asciiscape.parser.tokens;
+package net.andreinc.ansiscape.parser.tokens;
+
+import lombok.Getter;
 
 public class EscapeClassBegin extends Token {
 
-    private String escapeClassName;
+    @Getter private String escapeClassName;
 
     public EscapeClassBegin(int index, String escapeClassName) {
         super(index);
         this.escapeClassName = escapeClassName;
-    }
-
-    public String getEscapeClassName() {
-        return escapeClassName;
     }
 
     @Override

@@ -1,6 +1,6 @@
-package net.andreinc.asciiscape;
+package net.andreinc.ansiscape;
 
-import net.andreinc.asciiscape.parser.ParserUtils;
+import net.andreinc.ansiscape.parser.ParserUtils;
 import org.junit.Assert;
 import org.junit.Test;
 

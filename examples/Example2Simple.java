@@ -1,21 +1,21 @@
-import net.andreinc.asciiscape.AsciiClass;
-import net.andreinc.asciiscape.AsciiScape;
-import net.andreinc.asciiscape.AsciiScapeContext;
-import net.andreinc.asciiscape.AsciiSequence;
+import net.andreinc.ansiscape.AnsiClass;
+import net.andreinc.ansiscape.AnsiScape;
+import net.andreinc.ansiscape.AnsiScapeContext;
+import net.andreinc.ansiscape.AnsiSequence;
 
 public class Example2Simple {
     public static void main(String[] args) {
-        AsciiScapeContext context = new AsciiScapeContext();
+        AnsiScapeContext context = new AnsiScapeContext();
 
-        AsciiClass title = AsciiClass.withName("title").add(AsciiSequence.BOLD);
-        AsciiClass url = AsciiClass.withName("url").add(AsciiSequence.UNDERLINE, AsciiSequence.BLUE);
-        AsciiClass text = AsciiClass.withName("text").add(AsciiSequence.RED);
+        AnsiClass title = AnsiClass.withName("title").add(AnsiSequence.BOLD);
+        AnsiClass url = AnsiClass.withName("url").add(AnsiSequence.UNDERLINE, AnsiSequence.BLUE);
+        AnsiClass text = AnsiClass.withName("text").add(AnsiSequence.RED);
 
         context.add(title).add(url).add(text);
 
-        AsciiScape asciiScape = new AsciiScape(context);
+        AnsiScape ansiScape = new AnsiScape(context);
 
-        String format = asciiScape.format("{title Bold title}\n" +
+        String format = ansiScape.format("{title Bold title}\n" +
                                                  "-{text Some url: {url www.google.com}};\n" +
                                                  "-{text Some other url: {url {redBg www.redbackground.com}}}");
 

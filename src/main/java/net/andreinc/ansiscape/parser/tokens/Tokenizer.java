@@ -1,10 +1,13 @@
-package net.andreinc.asciiscape.parser.tokens;
+package net.andreinc.ansiscape.parser.tokens;
 
-import net.andreinc.asciiscape.parser.ParserUtils;
+import net.andreinc.ansiscape.parser.ParserUtils;
 
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * This class splits the source String that is going to be formatted into a List of tokens.
+ */
 public class Tokenizer {
 
     private static final char CHR_ESCAPE = '`';
@@ -33,12 +36,18 @@ public class Tokenizer {
                 i++;
             }
             else if (now == CHR_ESCAPE_CLASS_BEGIN) {
+                // This is where we exit from potential FreeText so everything we collected
+                // so far is going to be added in the final list of tokens
                 appendExistingFreeText(tokens, freeText, i);
+                // We obtain the ascii escape class name
                 String escapeClassName = ParserUtils.getUntilSpaceOrEnd(source, i+1);
                 tokens.add(new EscapeClassBegin(i, escapeClassName));
+                // We skip to the character where the class name ends.
                 i+=escapeClassName.length()+1;
             }
             else if (now == CHR_ESCAPE_CLASS_END) {
+                // This is where we exit from potential FreeText so everything we collected
+                // so far is going to be added in the final list of tokens
                 appendExistingFreeText(tokens, freeText, i);
                 tokens.add(new EscapeClassEnd(i));
             }
@@ -47,6 +56,7 @@ public class Tokenizer {
             }
             i++;
         }
+        // If there was anything in the freetext buffer we add it to the list of tokens
         appendExistingFreeText(tokens, freeText, i);
         return tokens;
     }
