@@ -2,6 +2,38 @@
 
 **AnsiScape** is a simple Java library that allows the user to format the output of the applications using [ANSI Escape Codes](https://en.wikipedia.org/wiki/ANSI_escape_code).
 
+Supported default escape classes:
+
+| Escape Class  |  Description |
+| ------------- | -------------|
+| `{b }` | Bold text |
+| `{bold }` | Bold text |
+| `{dim }` | Dim text |
+| `{u }` | Underlined text |
+| `{underline }` | Underlined text |
+| `{blink }` | Blink text |
+| `{reverse }` | Reverse text |
+| `{blank }` | Blank |
+| `{overstrike }` | Overstrike text |
+| `{reset }` | Resets everything inside tag |
+| `{black }` | Black foreground |
+| `{blackBg }` | Black background |
+| `{red }` | Red foreground |
+| `{redBg }` | Red foreground |
+| `{green }` | Green foreground |
+| `{greenBg }` | Green background |
+| `{yellow }` | Yellow foreground |
+| `{yellowBg }` | Yellow background |
+| `{blue }` | Blue foreground |
+| `{blueBg }` | Blue background |
+| `{magenta }` | Magenta foreground |
+| `{magentaBg }` | Magenta background |
+| `{cyan }` | Cyan foreground |
+| `{cyanBg }` | Cyan background |
+| `{white }` | White foreground |
+| `{whiteBg }` | White background |
+
+
 #### Example (1)
 
 ```java
@@ -25,6 +57,7 @@ In this example we are defining our own escape codes classes (in a way similar t
 ```java
 AnsiScapeContext context = new AnsiScapeContext();
 
+// Create new escape classes that can be used as tags inside the text
 AnsiClass title = AnsiClass.withName("title").add(AnsiSequence.BOLD);
 AnsiClass url = AnsiClass.withName("url").add(AnsiSequence.UNDERLINE, AnsiSequence.BLUE);
 AnsiClass text = AnsiClass.withName("text").add(AnsiSequence.RED);
