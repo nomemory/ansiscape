@@ -4,6 +4,7 @@ import net.andreinc.ansiscape.AnsiClass;
 import net.andreinc.ansiscape.AnsiScapeContext;
 import net.andreinc.ansiscape.AnsiSequence;
 import net.andreinc.ansiscape.parser.tokens.*;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -28,6 +29,9 @@ public class Parser {
     }
 
     public String parse(String source) {
+        if (StringUtils.isEmpty(source)) {
+            throw ParsingException.invalidSource();
+        }
         StringBuilder buff = new StringBuilder();
         List<Token> tokens = tokenizer.getTokens();
         LinkedList<AnsiClass> ansiClasses = new LinkedList<>();

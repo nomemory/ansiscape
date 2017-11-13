@@ -17,10 +17,4 @@ public class AnsiScape {
         Parser parser = new Parser(context, source);
         return String.format(parser.parse(source), args);
     }
-
-    public static void main(String[] args) {
-        System.out.println("\u2554\u2550\u2550\u2557");
-        System.out.println("\u2551aa\u2551");
-        System.out.println("\u255A\u2550\u2550\u255D");
-    }
 }

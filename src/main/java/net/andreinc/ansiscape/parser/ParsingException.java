@@ -10,6 +10,10 @@ public class ParsingException extends RuntimeException {
         return new ParsingException(String.format("Invalid bracket sequence detected at index: %d.", index));
     }
 
+    public static final ParsingException invalidSource() {
+        return new ParsingException("Invalid source. String cannot be NULL or empty.");
+    }
+
     public ParsingException(String msg) {
         super(msg);
     }
