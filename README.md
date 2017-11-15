@@ -4,7 +4,7 @@
 
 Library is available in [jcenter()](https://bintray.com/nomemory/maven/ansiscape).
 
-Gradle:
+**gradle:**
 
 ```groovy
 repositories {
@@ -14,6 +14,22 @@ repositories {
 dependencies {
     compile 'net.andreinc.ansiscape:ansiscape:0.0.2'
 }
+```
+
+**maven:**
+
+```xml
+<repositories>
+    <repository>
+        <id>jcenter</id>
+        <url>https://jcenter.bintray.com/</url>
+    </repository>
+</repositories>
+<dependency>
+  <groupId>net.andreinc.ansiscape</groupId>
+  <artifactId>ansiscape</artifactId>
+  <version>0.0.2</version>
+</dependency>
 ```
 
 ### Example (1)
