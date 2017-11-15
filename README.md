@@ -2,6 +2,19 @@
 
 **AnsiScape** is a simple Java library that allows the user to format the output of the applications using [ANSI Escape Codes](https://en.wikipedia.org/wiki/ANSI_escape_code).
 
+Library is available in [jcenter()](https://bintray.com/nomemory/maven/ansiscape).
+
+Gradle:
+
+```groovy
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'net.andreinc.ansiscape:ansiscape:0.0.2'
+}
+```
 
 ### Example (1)
 
