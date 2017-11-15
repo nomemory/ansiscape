@@ -9,7 +9,7 @@ import net.andreinc.ansiscape.parser.Parser;
 @AllArgsConstructor
 public class AnsiScape {
 
-    public static final AnsiScape ascii = new AnsiScape();
+    public static final AnsiScape ansi = new AnsiScape();
 
     @Getter private AnsiScapeContext context = new AnsiScapeContext();
 

@@ -2,7 +2,7 @@ package net.andreinc.ansiscape.parser;
 
 public class ParserUtils {
 
-    /**
+    /*
      * Returns all the characters starting from "start" until the end or a space is encountered.
      */
     public static String getUntilSpaceOrEnd(String source, int start) {

@@ -1,6 +1,7 @@
 package net.andreinc.ansiscape.parser;
 
 import net.andreinc.ansiscape.AnsiClass;
+import net.andreinc.ansiscape.AnsiScape;
 import net.andreinc.ansiscape.AnsiScapeContext;
 import net.andreinc.ansiscape.AnsiSequence;
 import net.andreinc.ansiscape.parser.tokens.*;
@@ -42,7 +43,7 @@ public class Parser {
                 String escapeClassName = begin.getEscapeClassName();
                 AnsiClass ansiClass = ansiScapeContext.get(escapeClassName);
                 if (null == ansiClass) {
-                    throw unknownEscapeClass(escapeClassName, token.getStartIndex(), source);
+                    throw unknownEscapeClass(escapeClassName);
                 }
                 buff.append(ansiClass.getCharSequences());
                 ansiClasses.add(ansiClass);
@@ -62,5 +63,12 @@ public class Parser {
             }
         }
         return buff.toString();
+    }
+
+    public static void main(String[] args) {
+        AnsiScape ansiScape = new AnsiScape();
+
+        String fmt = ansiScape.format("{Green Test}{blue Test}{cyan Test}", "s");
+        System.out.println(fmt);
     }
 }

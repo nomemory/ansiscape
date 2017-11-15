@@ -1,0 +1,39 @@
+apply plugin: 'maven'
+
+group = 'net.andreinc.ansiscape'
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'jar'
+                groupId 'net.andreinc.ansiscape'
+                artifactId 'ansiscape'
+
+                name 'ansiscape' // YOUR LIBRARY NAME
+                description 'Color your output using Ansi Escape codes'
+                url 'https://github.com/nomemory/ansiscape'
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'nomemory' //YOUR ID
+                        name 'Andrei N. Ciobanu' //YOUR NAME
+                        email 'n@n.com' //YOUR EMAIL
+                    }
+                }
+                scm {
+                    connection 'https://github.com/nomemory/ansiscape' // YOUR GIT REPO
+                    developerConnection 'https://github.com/nomemory/ansiscape' // YOUR GIT REPO
+                    url 'https://github.com/nomemory/ansiscape' // YOUR SITE
+
+                }
+            }
+        }
+    }
+}
